@@ -1,6 +1,4 @@
 import { WebsiteConfig, Program, Teacher, Resource } from '../types';
-// @ts-ignore
-import teacherProfileImage from '../assets/images/teacher_profile_1782745261371.jpg';
 
 export const defaultWebsiteConfig: WebsiteConfig = {
   whatsappNumber: '966501234567', // From advertisement: +966 50 123 4567
@@ -66,7 +64,7 @@ export const defaultPrograms: Program[] = [
       'Studying theoretical Tajweed rules with direct practical application.',
       'Intensive periodic revision to ensure the memorisation remains solid.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=800&q=80'
+    imageUrl: '/images/program-quran.jpg'
   },
   {
     id: 'p2',
@@ -87,7 +85,7 @@ export const defaultPrograms: Program[] = [
       'Hadith Explanation: Understanding the Prophetic traditions and their moral lessons.',
       'Quranic Exegesis: Introduction to Tafsir and the high objectives of Islamic Sharia.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=80'
+    imageUrl: '/images/program-fiqh.jpg'
   },
   {
     id: 'p3',
@@ -108,7 +106,7 @@ export const defaultPrograms: Program[] = [
       'Linguistic Skills: Developing fluent speech, composition, and comprehension in standard Arabic.',
       'Classical Literature: Reading and analyzing profound classical Arabic poetry and prose.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=800&q=80'
+    imageUrl: '/images/program-tajweed.jpg'
   },
   {
     id: 'p4',
@@ -129,7 +127,7 @@ export const defaultPrograms: Program[] = [
       'Contemporary Islamic Thoughts: Clarifying values of tolerance, justice, and moderation.',
       'Islamic Character Building: Nurturing high ethics, family values, and community responsibilities.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80'
+    imageUrl: '/images/program-seerah.jpg'
   },
   {
     id: 'p5',
@@ -150,7 +148,7 @@ export const defaultPrograms: Program[] = [
       'Critical Thinking: Training students in analytical evaluation and Islamic logical discourse.',
       'Humanities & Social Sciences: Broadening horizons with general knowledge integrated with faith.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80'
+    imageUrl: '/images/about-institute.jpg'
   },
   {
     id: 'p6',
@@ -171,7 +169,7 @@ export const defaultPrograms: Program[] = [
       'Personal Development: Cultivating public speaking, leadership, and instructional skills.',
       'Educational Psychology: Understanding child developmental psychology for effective mentoring.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80'
+    imageUrl: '/images/program-tajweed.jpg'
   }
 ];
 
@@ -188,7 +186,7 @@ export const defaultTeachers: Teacher[] = [
     coursesEn: ['Approved Sharia Programs', 'Arabic Language & Grammar Curricula', 'Academic Research & Personal Development Skills'],
     languagesAr: ['العربية'],
     languagesEn: ['Arabic'],
-    imageUrl: teacherProfileImage
+    imageUrl: '/images/teacher-01.jpg'
   }
 ];
 
@@ -202,7 +200,7 @@ export const defaultResources: Resource[] = [
     category: 'الفقه',
     type: 'pdf',
     url: 'https://archive.org/download/ibn_ashir_pdf/ibn_ashir_pdf.pdf', // Example archive URL
-    coverUrl: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400&q=80',
+    coverUrl: '/images/resource-fiqh.jpg',
     isFeatured: true,
     createdAt: '2026-06-20T10:00:00Z',
     authorAr: 'الشيخ عبد الواحد بن عاشر',
@@ -219,7 +217,7 @@ export const defaultResources: Resource[] = [
     category: 'التجويد',
     type: 'pdf',
     url: 'https://archive.org/download/tuhfat_al_atfal/tuhfat_al_atfal.pdf',
-    coverUrl: 'https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=400&q=80',
+    coverUrl: '/images/resource-tajweed.jpg',
     isFeatured: true,
     createdAt: '2026-06-22T11:30:00Z',
     authorAr: 'الشيخ سليمان الجمزوري',
@@ -236,7 +234,7 @@ export const defaultResources: Resource[] = [
     category: 'الحديث',
     type: 'pdf',
     url: 'https://archive.org/download/40_hadith_nawawi/40_hadith_nawawi.pdf',
-    coverUrl: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=400&q=80',
+    coverUrl: '/images/resource-fiqh.jpg',
     isFeatured: true,
     createdAt: '2026-06-25T09:15:00Z',
     authorAr: 'الإمام يحيى بن شرف النووي',
@@ -253,7 +251,7 @@ export const defaultResources: Resource[] = [
     category: 'العقيدة',
     type: 'pdf',
     url: 'https://archive.org/download/tahawiyyah/tahawiyyah.pdf',
-    coverUrl: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=400&q=80',
+    coverUrl: '/images/resource-fiqh.jpg',
     isFeatured: false,
     createdAt: '2026-06-26T14:00:00Z',
     authorAr: 'الإمام أبو جعفر الطحاوي',
@@ -270,7 +268,7 @@ export const defaultResources: Resource[] = [
     category: 'التجويد',
     type: 'video',
     url: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Placeholder video
-    coverUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80',
+    coverUrl: '/images/resource-tajweed.jpg',
     isFeatured: false,
     createdAt: '2026-06-27T16:00:00Z',
     authorAr: 'قسم التجويد بالمعهد',
@@ -285,7 +283,7 @@ export const defaultResources: Resource[] = [
     category: 'روابط مفيدة',
     type: 'link',
     url: 'http://quran.ksu.edu.sa',
-    coverUrl: 'https://images.unsplash.com/photo-1609599006353-e629f1d00f18?auto=format&fit=crop&w=400&q=80',
+    coverUrl: '/images/resource-tajweed.jpg',
     isFeatured: false,
     createdAt: '2026-06-28T12:00:00Z',
     authorAr: 'جامعة الملك سعود',
