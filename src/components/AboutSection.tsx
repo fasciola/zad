@@ -123,10 +123,9 @@ export default function AboutSection({ lang, config }: AboutSectionProps) {
           <div className="lg:col-span-5 relative">
             <div className="absolute inset-0 border-2 border-brand-gold rounded-3xl translate-x-3 translate-y-3 z-0" />
             <img
-              src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=600&q=80"
+              src="/images/about-institute.jpg"
               alt="Islamic Manuscripts and books"
               className="relative w-full h-[380px] object-cover rounded-3xl shadow-xl z-10 border border-brand-cream"
-              referrerPolicy="no-referrer"
             />
           </div>
         </div>
