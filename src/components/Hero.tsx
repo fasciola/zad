@@ -19,10 +19,9 @@ export default function Hero({ lang, config, onExploreLibrary, onContactUs }: He
       {/* Cinematic Background Image with Parallax Style */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1920&q=80"
+          src="/images/hero-islamic-study.jpg"
           alt="Islamic Studies Library Background"
           className="w-full h-full object-cover object-center filter opacity-[0.08] mix-blend-multiply"
-          referrerPolicy="no-referrer"
         />
         {/* Subtle geometric pattern overlay */}
         <div className="absolute inset-0 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:40px_40px] opacity-[0.03]" />
