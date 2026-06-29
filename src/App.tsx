@@ -15,6 +15,40 @@ import PdfViewer from './components/PdfViewer';
 import AdminDashboard from './components/AdminDashboard';
 import { onAuthStateChanged } from 'firebase/auth';
 
+const isLegacyRemoteImage = (url?: string) =>
+  Boolean(url && (url.includes('images.unsplash.com') || url.includes('source.unsplash.com')));
+
+const resolveProgramImage = (program: Program) => {
+  if (!isLegacyRemoteImage(program.imageUrl)) return program.imageUrl;
+
+  const label = `${program.titleAr} ${program.titleEn}`.toLowerCase();
+  if (label.includes('قرآن') || label.includes('qur') || label.includes('حفظ') || label.includes('memor')) {
+    return '/images/program-quran.jpg';
+  }
+  if (label.includes('تجويد') || label.includes('tajweed')) {
+    return '/images/program-tajweed.jpg';
+  }
+  if (label.includes('سيرة') || label.includes('seerah') || label.includes('islamic studies') || label.includes('الدراسات الإسلامية')) {
+    return '/images/program-seerah.jpg';
+  }
+  if (label.includes('فقه') || label.includes('fiqh') || label.includes('عقيدة') || label.includes('sharia') || label.includes('العلوم الشرعية')) {
+    return '/images/program-fiqh.jpg';
+  }
+  return '/images/about-institute.jpg';
+};
+
+const resolveResourceImage = (resource: Resource) => {
+  if (!isLegacyRemoteImage(resource.coverUrl)) return resource.coverUrl;
+
+  const label = `${resource.titleAr} ${resource.titleEn} ${resource.category}`.toLowerCase();
+  return label.includes('تجويد') || label.includes('tajweed') || label.includes('مخارج')
+    ? '/images/resource-tajweed.jpg'
+    : '/images/resource-fiqh.jpg';
+};
+
+const resolveTeacherImage = (teacher: Teacher) =>
+  isLegacyRemoteImage(teacher.imageUrl) ? '/images/teacher-01.jpg' : teacher.imageUrl;
+
 export default function App() {
   const [lang, setLang] = useState<Language>('ar');
   const [config, setConfig] = useState<WebsiteConfig>(defaultWebsiteConfig);
@@ -40,9 +74,21 @@ export default function App() {
       ]);
 
       setConfig(fetchedConfig);
-      setResources(fetchedResources);
-      setPrograms(fetchedPrograms);
-      setTeachers(fetchedTeachers);
+      // Firebase contains earlier Unsplash image URLs. Replace only those legacy URLs
+      // with the matching local assets in public/images, while preserving any future
+      // custom administrator image URLs.
+      setResources(fetchedResources.map((resource) => ({
+        ...resource,
+        coverUrl: resolveResourceImage(resource)
+      })));
+      setPrograms(fetchedPrograms.map((program) => ({
+        ...program,
+        imageUrl: resolveProgramImage(program)
+      })));
+      setTeachers(fetchedTeachers.map((teacher) => ({
+        ...teacher,
+        imageUrl: resolveTeacherImage(teacher)
+      })));
     } catch (error) {
       console.error('Failed to load dynamic data from Firebase. Offline mode activated.', error);
     } finally {
