@@ -1,0 +1,72 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper to check if user is authenticated (which we consider admin in our single-user setup)
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn();
+    }
+
+    // Reusable, hardened global helper to check document ID length and format
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    // Helper to validate a submitted contact message
+    function isValidMessage(data) {
+      return data.keys().hasAll(['id', 'fullName', 'email', 'phone', 'subject', 'message', 'createdAt'])
+        && data.keys().size() == 7
+        && data.id is string && data.id.size() > 0 && data.id.size() <= 128
+        && data.fullName is string && data.fullName.size() > 0 && data.fullName.size() <= 256
+        && data.email is string && data.email.size() > 0 && data.email.size() <= 256
+        && data.phone is string && data.phone.size() > 0 && data.phone.size() <= 64
+        && data.subject is string && data.subject.size() > 0 && data.subject.size() <= 256
+        && data.message is string && data.message.size() > 0 && data.message.size() <= 10000
+        && data.createdAt is string && data.createdAt.size() > 0 && data.createdAt.size() <= 128;
+    }
+
+    // Global default-deny safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Resources collection
+    match /resources/{resourceId} {
+      allow read: if true;
+      allow write: if isAdmin() && isValidId(resourceId);
+    }
+
+    // Config settings
+    match /config/settings {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Messages collection
+    match /messages/{messageId} {
+      allow create: if isValidId(messageId) && isValidMessage(incoming());
+      allow read, delete: if isAdmin();
+      allow update: if false;
+    }
+
+    // Teachers collection
+    match /teachers/{teacherId} {
+      allow read: if true;
+      allow write: if isAdmin() && isValidId(teacherId);
+    }
+
+    // Programs collection
+    match /programs/{programId} {
+      allow read: if true;
+      allow write: if isAdmin() && isValidId(programId);
+    }
+  }
+}

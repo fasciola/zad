@@ -1,0 +1,6 @@
+{
+  "name": "Zad Online Islamic Institute",
+  "description": "An elegant bilingual website for Zad Online Islamic Institute (معهد زاد الإلكتروني العلمي) providing Islamic education programs, teacher profiles, and an educational library.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

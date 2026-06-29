@@ -1,0 +1,126 @@
+{
+  "entities": {
+    "Resource": {
+      "title": "Resource",
+      "description": "Educational resource (PDF, link, audio, video, article) published by the administrator.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "titleAr": { "type": "string" },
+        "titleEn": { "type": "string" },
+        "descriptionAr": { "type": "string" },
+        "descriptionEn": { "type": "string" },
+        "category": { "type": "string" },
+        "type": { "type": "string", "enum": ["pdf", "audio", "video", "link", "article"] },
+        "url": { "type": "string" },
+        "coverUrl": { "type": "string" },
+        "isFeatured": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "titleAr", "titleEn", "category", "type", "url"]
+    },
+    "Message": {
+      "title": "Message",
+      "description": "Contact form submissions from visitors.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "fullName": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "phone": { "type": "string" },
+        "subject": { "type": "string" },
+        "message": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "fullName", "email", "phone", "subject", "message", "createdAt"]
+    },
+    "Config": {
+      "title": "Config",
+      "description": "Website configuration settings editable by the administrator.",
+      "type": "object",
+      "properties": {
+        "whatsappNumber": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "heroTitleAr": { "type": "string" },
+        "heroTitleEn": { "type": "string" },
+        "heroSubtitleAr": { "type": "string" },
+        "heroSubtitleEn": { "type": "string" },
+        "aboutTextAr": { "type": "string" },
+        "aboutTextEn": { "type": "string" },
+        "visionAr": { "type": "string" },
+        "visionEn": { "type": "string" },
+        "missionAr": { "type": "string" },
+        "missionEn": { "type": "string" },
+        "goalsAr": { "type": "array" },
+        "goalsEn": { "type": "array" },
+        "valuesAr": { "type": "array" },
+        "valuesEn": { "type": "array" },
+        "regionsServedAr": { "type": "string" },
+        "regionsServedEn": { "type": "string" },
+        "facebookUrl": { "type": "string" },
+        "twitterUrl": { "type": "string" },
+        "youtubeUrl": { "type": "string" }
+      }
+    },
+    "Teacher": {
+      "title": "Teacher",
+      "description": "Teacher profile information.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "nameAr": { "type": "string" },
+        "nameEn": { "type": "string" },
+        "bioAr": { "type": "string" },
+        "bioEn": { "type": "string" },
+        "specialtyAr": { "type": "string" },
+        "specialtyEn": { "type": "string" },
+        "coursesAr": { "type": "array" },
+        "coursesEn": { "type": "array" },
+        "languagesAr": { "type": "array" },
+        "languagesEn": { "type": "array" },
+        "imageUrl": { "type": "string" }
+      },
+      "required": ["id", "nameAr", "nameEn", "bioAr", "bioEn"]
+    },
+    "Program": {
+      "title": "Program",
+      "description": "Educational program information.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "titleAr": { "type": "string" },
+        "titleEn": { "type": "string" },
+        "descriptionAr": { "type": "string" },
+        "descriptionEn": { "type": "string" },
+        "category": { "type": "string", "enum": ["quran", "sharia"] },
+        "detailsAr": { "type": "array" },
+        "detailsEn": { "type": "array" },
+        "imageUrl": { "type": "string" }
+      },
+      "required": ["id", "titleAr", "titleEn", "category"]
+    }
+  },
+  "firestore": {
+    "resources/{resourceId}": {
+      "schema": "Resource",
+      "description": "Collection of learning materials"
+    },
+    "messages/{messageId}": {
+      "schema": "Message",
+      "description": "Collection of contact messages"
+    },
+    "config/settings": {
+      "schema": "Config",
+      "description": "Singleton document containing customizable site settings"
+    },
+    "teachers/{teacherId}": {
+      "schema": "Teacher",
+      "description": "Collection of teacher profiles"
+    },
+    "programs/{programId}": {
+      "schema": "Program",
+      "description": "Collection of educational programs"
+    }
+  }
+}
