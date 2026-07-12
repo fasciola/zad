@@ -8,6 +8,30 @@ interface LibrarySectionProps {
   onOpenPdf: (res: Resource) => void;
 }
 
+export const CATEGORIES_AR = [
+  'القرآن الكريم',
+  'التجويد',
+  'الفقه',
+  'العقيدة',
+  'السيرة النبوية',
+  'الحديث',
+  'التربية الإسلامية',
+  'مواد للأطفال',
+  'روابط مفيدة'
+];
+
+export const CATEGORIES_EN = [
+  'Qur’an',
+  'Tajweed',
+  'Fiqh',
+  'Aqeedah',
+  'Seerah',
+  'Hadith',
+  'Islamic Education',
+  'Children’s Resources',
+  'Useful Links'
+];
+
 const LEGACY_PLACEHOLDER_RESOURCE_IDS = new Set(['r1', 'r2', 'r3', 'r4', 'r5', 'r6']);
 
 const LEGACY_PLACEHOLDER_TITLES = [
