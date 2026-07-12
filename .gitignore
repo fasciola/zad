@@ -1,1 +1,14 @@
-Nothing should be ignored since only a TypeScript React component file (.tsx) was modified and no build artifacts, dependencies, or temporary files were detected in the changes.
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+.vs/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
