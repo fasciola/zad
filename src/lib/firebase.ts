@@ -83,8 +83,25 @@ export async function getWebsiteConfig(): Promise<WebsiteConfig> {
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       const data = docSnap.data();
-      // Self-healing check: if the stored config is the old default or placeholder, use the new flyer-based default config
-      if (data.whatsappNumber === '212600000000' || !data.phone || data.phone.includes('+212')) {
+      // Self-healing check: if the stored config is an older placeholder/default,
+      // return the latest approved institute content and contact details.
+      const hasLegacyDefaultConfig =
+        data.whatsappNumber === '212600000000' ||
+        data.whatsappNumber === '966501234567' ||
+        !data.phone ||
+        data.phone.includes('+212') ||
+        data.phone.includes('+966 50 123 4567') ||
+        data.regionsServedAr?.includes('الجاليات المسلمة') ||
+        data.valuesAr?.some((value: string) => value.includes('فهم سلف الأمة'));
+
+      if (hasLegacyDefaultConfig) {
+        if (auth?.currentUser) {
+          try {
+            await setDoc(docRef, defaultWebsiteConfig);
+          } catch (writeError) {
+            handleFirestoreError(writeError, OperationType.WRITE, 'config/settings');
+          }
+        }
         return defaultWebsiteConfig;
       }
       return { ...defaultWebsiteConfig, ...data } as WebsiteConfig;
@@ -253,8 +270,13 @@ export async function getPrograms(): Promise<Program[]> {
       list.push({ id: doc.id, ...doc.data() } as Program);
     });
 
-    // Self-healing check: if database has the old default program set, fallback to new flyer-based defaultPrograms
-    if (list.length === 0 || list.length === 3 || list.some(p => p.titleAr === 'دبلوم العلوم الشرعية التأسيسي')) {
+    const hasLegacyProgramContent =
+      list.some(p => p.detailsAr?.some(detail => detail.includes('ورش عن نافع'))) ||
+      list.some(p => p.titleAr === 'العلوم الشرعية' && !p.detailsAr?.some(detail => detail.includes('علوم القرآن'))) ||
+      list.some(p => p.titleAr === 'دبلوم العلوم الشرعية التأسيسي');
+
+    // Self-healing check: if database has older placeholder content, fallback and seed the latest defaults.
+    if (list.length === 0 || list.length === 3 || hasLegacyProgramContent) {
       // Seed default programs ONLY if we have an authenticated user to perform the write
       if (auth?.currentUser) {
         try {
@@ -311,8 +333,17 @@ export async function getTeachers(): Promise<Teacher[]> {
       list.push({ id: doc.id, ...doc.data() } as Teacher);
     });
 
-    // Self-healing check: if database has the old default teachers, or list is not exactly 1 teacher, fallback and seed the new flyer-based single teacher
-    if (list.length === 0 || list.length === 3 || list.some(t => t.nameAr === 'الشيخ الدكتور عبد الرحمن التونسي' || t.id === 't2' || t.id === 't3')) {
+    const hasLegacyTeacherContent = list.some(t =>
+      t.nameAr === 'الشيخ الأكاديمي المشرف' ||
+      t.nameAr === 'الشيخ الدكتور عبد الرحمن التونسي' ||
+      t.nameAr?.includes('عبد الرحمن التونسي') ||
+      t.bioAr?.includes('حاصل على شهادة الدكتوراه') ||
+      t.id === 't2' ||
+      t.id === 't3'
+    );
+
+    // Self-healing check: if database has older placeholder teachers, fallback and seed the latest founder profile.
+    if (list.length === 0 || list.length === 3 || hasLegacyTeacherContent) {
       // Seed default teachers ONLY if we have an authenticated user to perform the write
       if (auth?.currentUser) {
         try {
