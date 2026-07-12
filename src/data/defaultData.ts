@@ -1,9 +1,9 @@
 import { WebsiteConfig, Program, Teacher, Resource } from '../types';
 
 export const defaultWebsiteConfig: WebsiteConfig = {
-  whatsappNumber: '966501234567', // From advertisement: +966 50 123 4567
-  email: 'info@zad-institute.com', // From advertisement: zad.institute
-  phone: '+966 50 123 4567', // From advertisement: +966 50 123 4567
+  whatsappNumber: '249912566482',
+  email: 'info@zad-institute.com',
+  phone: '+249 91 256 6482',
   heroTitleAr: 'سجّل الآن في معهد زاد الإلكتروني العلمي',
   heroTitleEn: 'Register Now at Zad Online Scientific Institute',
   heroSubtitleAr: 'دراسة عن بعد... بعلم راسخ لمستقبل واعد',
@@ -29,19 +29,19 @@ export const defaultWebsiteConfig: WebsiteConfig = {
     'Overcoming geographic and time barriers for learners worldwide through the flexibility of electronic classrooms.'
   ],
   valuesAr: [
-    'الأصالة والمنهجية: الالتزام بالمنهج العلمي الأصيل المستمد من الكتاب والسنة وفهم سلف الأمة.',
+    'الأصالة والمنهجية: الالتزام بالمنهج العلمي الأصيل المستمد من الكتاب والسنة وفهم الأئمة الأعلام.',
     'الوسطية والاعتدال: نشر قيم التسامح والاعتدال بعيداً عن الغلو والتقصير.',
     'الإتقان والتميز: الحرص على جودة العملية التعليمية وكفاءة المعلمين والمعلمات.',
     'التيسير والمرونة: مراعاة ظروف الطلاب وتقديم حلول تعليمية مرنة تناسب الجميع.'
   ],
   valuesEn: [
-    'Authenticity & Methodology: Commitment to the authentic scientific curriculum derived from the Book and Sunnah.',
+    'Authenticity & Methodology: Commitment to the authentic scientific curriculum derived from the Book, the Sunnah, and the understanding of recognised leading scholars.',
     'Moderation: Spreading the values of tolerance and balance, away from extremism and negligence.',
     'Mastery & Excellence: Ensuring the quality of the educational process and the competence of teachers.',
     'Ease & Flexibility: Taking into account students’ circumstances and providing flexible learning solutions.'
   ],
-  regionsServedAr: 'نخدم الطلاب في جميع قارات العالم، مع تركيز خاص على الجاليات المسلمة في أوروبا، أمريكا الشمالية، وآسيا، بالإضافة إلى الطلاب في العالم العربي والإسلامي.',
-  regionsServedEn: 'We serve students across all continents, with a special focus on Muslim communities in Europe, North America, and Asia, in addition to students in the Arab and Islamic world.'
+  regionsServedAr: 'يخدم المعهد طلاب وطالبات العلم الشرعي في جميع أنحاء العالم من خلال نظام التعليم الإلكتروني عن بُعد، مع تركيز خاص على حفظة القرآن الكريم في السودان وخارجه، إيمانًا بأهمية تأهيلهم علميًا وتمكينهم من مواصلة طلب العلم الشرعي وفق منهجية راسخة تجمع بين الأصالة والتيسير.',
+  regionsServedEn: 'The institute serves male and female seekers of Islamic knowledge worldwide through remote online education, with a special focus on Qur’an memorisers in Sudan and abroad, supporting their scholarly qualification and continued Islamic learning through a rooted methodology that combines authenticity and facilitation.'
 };
 
 export const defaultPrograms: Program[] = [
@@ -53,13 +53,13 @@ export const defaultPrograms: Program[] = [
     descriptionEn: 'An integrated program aiming to accompany the student in memorising the Book of Allah entirely or partially, adjusting letter exits, and applying Tajweed rules.',
     category: 'quran',
     detailsAr: [
-      'حفظ القرآن الكريم برواية ورش عن نافع أو رواية حفص عن عاصم.',
+      'حفظ القرآن الكريم برواية حفص عن عاصم أو رواية الدوري عن أبي عمرو.',
       'تصحيح التلاوة وتعديل النطق للوصول إلى القراءة الصحيحة.',
       'دراسة أحكام التجويد النظرية والتطبيق العملي المباشر.',
       'مراجعة دورية مكثفة لضمان ثبات المحفوظ وعدم نسيانه.'
     ],
     detailsEn: [
-      'Memorising the Holy Qur’an according to Warsh or Hafs narrations.',
+      'Memorising the Holy Qur’an according to the Hafs narration from Asim or the Al-Duri narration from Abu Amr.',
       'Correcting recitation and adjusting pronunciation to achieve proper reading.',
       'Studying theoretical Tajweed rules with direct practical application.',
       'Intensive periodic revision to ensure the memorisation remains solid.'
@@ -70,20 +70,30 @@ export const defaultPrograms: Program[] = [
     id: 'p2',
     titleAr: 'العلوم الشرعية',
     titleEn: 'Sharia Sciences',
-    descriptionAr: 'دراسة شاملة ومؤصلة للمتون والمسائل الأساسية في الفقه والعقيدة والحديث وتفسير القرآن الكريم لبناء طالب علم متكامل.',
-    descriptionEn: 'A comprehensive and foundational study of classical texts and fundamental issues in Fiqh, Creed, Hadith, and Quranic Tafsir.',
+    descriptionAr: 'العلوم الشرعية هي العلوم التي تُعنى بفهم الدين الإسلامي من مصادره الأصلية، القرآن الكريم والسنة النبوية، لبناء طالب علم متكامل يجمع بين التأصيل العلمي والعمل التربوي والدعوي.',
+    descriptionEn: 'Sharia sciences are the disciplines concerned with understanding Islam from its original sources, the Holy Qur’an and the Prophetic Sunnah, to build a well-rounded seeker of knowledge.',
     category: 'sharia',
     detailsAr: [
-      'العقيدة الإسلامية: دراسة مبسطة لأركان الإيمان والتوحيد على منهج أهل السنة.',
-      'الفقه الإسلامي: فقه العبادات (طهارة، صلاة، زكاة، صيام) والمعاملات الأساسية.',
-      'شرح الأحاديث النبوية الشريفة وتطبيقاتها التربوية والعملية في الحياة اليومية.',
-      'أصول تفسير القرآن الكريم وتوضيح مقاصد الشريعة الإسلامية السامية.'
+      'العقيدة: دراسة الإيمان بالله وأركان الإيمان وما يتعلق بالتوحيد.',
+      'الفقه: معرفة الأحكام الشرعية العملية المتعلقة بالعبادات والمعاملات.',
+      'أصول الفقه: القواعد والمناهج التي يُستنبط بها الحكم الشرعي.',
+      'التفسير: شرح معاني القرآن الكريم وبيان مقاصده.',
+      'علوم القرآن: دراسة جمع القرآن وقراءاته وأسباب النزول وغيرها.',
+      'الحديث وعلومه: دراسة السنة النبوية وروايتها وتمييز الصحيح من الضعيف.',
+      'السيرة النبوية: دراسة حياة النبي ﷺ وأحداث دعوته.',
+      'اللغة العربية: النحو والصرف والبلاغة؛ لأنها أداة لفهم النصوص الشرعية.',
+      'الدعوة وأصولها: دراسة أساليب تبليغ الإسلام وتعليمه.'
     ],
     detailsEn: [
-      'Islamic Creed: Simplified study of the pillars of faith and Tawheed.',
-      'Islamic Jurisprudence (Fiqh): Worship acts (purification, prayer, charity, fasting) and basic transactions.',
-      'Hadith Explanation: Understanding the Prophetic traditions and their moral lessons.',
-      'Quranic Exegesis: Introduction to Tafsir and the high objectives of Islamic Sharia.'
+      'Aqeedah: Studying belief in Allah, the pillars of faith, and matters related to Tawheed.',
+      'Fiqh: Understanding practical rulings related to worship and transactions.',
+      'Usul al-Fiqh: Learning the principles and methods used to derive Islamic rulings.',
+      'Tafsir: Explaining the meanings of the Holy Qur’an and clarifying its objectives.',
+      'Qur’anic Sciences: Studying the compilation of the Qur’an, its recitations, reasons of revelation, and related topics.',
+      'Hadith and its Sciences: Studying the Prophetic Sunnah, narration, and distinguishing authentic reports from weak ones.',
+      'Seerah: Studying the life of the Prophet ﷺ and the events of his mission.',
+      'Arabic Language: Grammar, morphology, and rhetoric as tools for understanding Islamic texts.',
+      'Da’wah and its Principles: Studying methods of conveying and teaching Islam.'
     ],
     imageUrl: '/images/program-fiqh.jpg'
   },
@@ -176,14 +186,14 @@ export const defaultPrograms: Program[] = [
 export const defaultTeachers: Teacher[] = [
   {
     id: 't1',
-    nameAr: 'الشيخ الأكاديمي المشرف',
-    nameEn: 'Sheikh Dr. Academic Supervisor',
-    bioAr: 'المشرف العلمي والمدرس العام بمعهد زاد الإلكتروني العلمي، حاصل على شهادة الدكتوراه في العلوم الشرعية واللغة العربية، ذو خبرة تربوية وأكاديمية واسعة تمتد لأكثر من 15 عاماً في تدريس القرآن وتطوير المناهج وإلقاء المحاضرات التفاعلية والدروس المباشرة.',
-    bioEn: 'Scientific Supervisor and Main Lecturer at Zad Online Scientific Institute, holding a PhD in Sharia Sciences and Arabic Language, with over 15 years of rich educational and academic experience in Quranic teaching, curriculum development, interactive lectures, and live mentoring.',
-    specialtyAr: 'العلوم الشرعية، اللغة العربية، وتأهيل وتدريب المعلمين والبحث العلمي',
-    specialtyEn: 'Sharia Sciences, Arabic Language, Teacher Training & Academic Research',
-    coursesAr: ['برامج العلوم الشرعية المعتمدة', 'مناهج اللغة العربية وقواعدها', 'مهارات البحث العلمي والتطوير الأكاديمي'],
-    coursesEn: ['Approved Sharia Programs', 'Arabic Language & Grammar Curricula', 'Academic Research & Personal Development Skills'],
+    nameAr: 'سماحة الشيخ الشريف بدر البدور الشريف مصطفى المكاشفي',
+    nameEn: 'Sheikh Al-Sharif Badr Al-Budur Mustafa Al-Makashfi',
+    bioAr: 'سماحة الشيخ الشريف بدر البدور الشريف مصطفى المكاشفي، سليل الدوحة المكاشفية وفخر السادة الصوفية، هو واحد من أبرز الوجوه الدعوية والعلمية الشابة في السودان، ومن الشخصيات التي برزت في ميدان التعليم الشرعي والدعوة إلى الله، حيث جمع بين التأصيل العلمي والخطابة المؤثرة والرؤية التجديدية في خدمة العلم الشرعي ونشره. نال درجة بكالوريوس الدراسات الإسلامية من جامعة أم درمان الإسلامية، ثم حصل على الدبلوم العالي في الحديث النبوي من جامعة القرآن الكريم والعلوم الإسلامية، فجمع بين الدراسة الأكاديمية والتكوين الشرعي، وانطلق في ميادين الدعوة والتعليم والتأليف حتى أصبح من الأسماء المعروفة بين الدعاة الشباب. ويُعد الشيخ مؤسس معهد زاد الإلكتروني العلمي ومدرسة زاد الإلكترونية للعلوم الشرعية، وهما من المبادرات التعليمية الرائدة التي أسهمت في توسيع دائرة التعليم الشرعي عن بُعد، وإتاحة الفرصة لطلاب العلم داخل السودان وخارجه لتلقي العلوم الإسلامية بمنهجية علمية رصينة. وقد عُرف باهتمامه الكبير بتطوير التعليم الديني، وتيسير الوصول إليه عبر الوسائل الحديثة، إيمانًا منه بأن نشر العلم رسالة تتجاوز الحدود الجغرافية. كما تولى الإمامة والخطابة في عدد من المساجد، واشتهر بمنبره المؤثر وأسلوبه البليغ، وألقى عشرات الخطب والمحاضرات والدروس العلمية في مختلف أنحاء السودان، إضافة إلى مشاركات دعوية خارج البلاد عُرف خلالها بالحكمة وحسن البيان وقوة الطرح. وله حضور علمي بارز في تدريس العلوم الشرعية، إلى جانب عدد من المؤلفات، من أشهرها: حدائق الأنوار في حسن وإحسان النبي المختار ﷺ، والفيض النبوي في مدح النبي ﷺ، ورحيق المسيد. كما كانت له مشاركات إعلامية متعددة، وأُجريت معه لقاءات تلفزيونية، وقدم فقرة علمية ثابتة بعنوان «من الأثر» على قناة سودانية 24، أسهمت في نشر الثقافة الإسلامية وتعزيز الوعي الشرعي. ويتميز الشيخ بدر البدور المكاشفي بشخصية دعوية مؤثرة وقربه من الشباب وفصاحته وسعة اطلاعه وقدرته على تبسيط العلوم الشرعية وربطها بواقع الناس، مما جعله يحظى بقبول واسع بين مختلف شرائح المجتمع. وقد زار عددًا من الدول مشاركًا في أنشطة دعوية وعلمية، مواصلًا رسالته في نشر العلم وخدمة الإسلام، واضعًا نصب عينيه خدمة القرآن الكريم وإحياء العلوم الشرعية والمساهمة في بناء جيل يحمل العلم والأخلاق.',
+    bioEn: 'Sheikh Al-Sharif Badr Al-Budur Mustafa Al-Makashfi is a Sudanese Islamic educator, preacher, author, and founder of Zad Online Scientific Institute and Zad Online School for Sharia Sciences. He holds a Bachelor’s degree in Islamic Studies from Omdurman Islamic University and a Higher Diploma in Prophetic Hadith from the University of the Holy Qur’an and Islamic Sciences. His work combines academic grounding, Islamic teaching, public speaking, authorship, and modern distance-learning initiatives designed to make Islamic knowledge accessible to students in Sudan and abroad.',
+    specialtyAr: 'العلوم الشرعية، الحديث النبوي، الدعوة، الخطابة، وتطوير التعليم الشرعي الإلكتروني',
+    specialtyEn: 'Sharia Sciences, Prophetic Hadith, Da’wah, Public Speaking & Online Islamic Education',
+    coursesAr: ['العلوم الشرعية', 'حفظ القرآن الكريم وتجويده', 'الحديث النبوي وعلومه', 'السيرة النبوية', 'الدعوة وأصولها'],
+    coursesEn: ['Sharia Sciences', 'Qur’an Memorisation & Tajweed', 'Hadith and its Sciences', 'Prophetic Seerah', 'Da’wah and its Principles'],
     languagesAr: ['العربية'],
     languagesEn: ['Arabic'],
     imageUrl: '/images/teacher-01.jpg'
