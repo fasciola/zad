@@ -35,14 +35,14 @@ export default function TeachersSection({ lang, teachers }: TeachersSectionProps
               dir={isRtl ? 'rtl' : 'ltr'}
             >
               {/* Profile Image with subtle gold accent line */}
-              <div className="h-64 overflow-hidden relative">
+              <div className="h-80 overflow-hidden relative bg-brand-cream/40 flex items-start justify-center">
                 <img
                   src={teacher.imageUrl}
                   alt={isRtl ? teacher.nameAr : teacher.nameEn}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
+                  className="w-full h-full object-contain object-top transition-transform duration-500"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-transparent opacity-45" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-transparent opacity-35 pointer-events-none" />
                 
                 {/* Specialization Badge overlaid on image bottom */}
                 <div className="absolute bottom-4 left-4 right-4 bg-brand-charcoal/80 backdrop-blur-sm p-3 rounded-xl border border-white/10">
