@@ -39,7 +39,7 @@ export default function TeachersSection({ lang, teachers }: TeachersSectionProps
                 <img
                   src={teacher.imageUrl}
                   alt={isRtl ? teacher.nameAr : teacher.nameEn}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-103"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-transparent opacity-45" />
